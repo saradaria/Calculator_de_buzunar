@@ -1,1 +1,102 @@
+{G:/ANUL 3/FIC/proiect final/Soft/Control_Unit.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Control_Unit.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Control_Unit
 
+Top level modules:
+	Control_Unit
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Parameter.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Parameter.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/ALU.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/ALU.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Data_memory.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Data_memory.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Data_memory
+
+Top level modules:
+	Data_memory
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Instruction_Memory.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Instruction_Memory.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Instruction_Memory
+
+Top level modules:
+	Instruction_Memory
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/mux_3to1_16bit.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/mux_3to1_16bit.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module mux_3to1_16bit
+
+Top level modules:
+	mux_3to1_16bit
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Flags.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Flags.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Flags
+
+Top level modules:
+	Flags
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Stack_Pointer.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Stack_Pointer.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Stack_Pointer
+
+Top level modules:
+	Stack_Pointer
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Adder.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Adder.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Adder
+
+Top level modules:
+	Adder
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Accumulator.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Accumulator.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Accumulator
+
+Top level modules:
+	Accumulator
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Sign_Extend.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Sign_Extend.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Sign_Extend
+
+Top level modules:
+	Sign_Extend
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Sign_Extend_imm.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Sign_Extend_imm.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Sign_Extend_imm
+
+Top level modules:
+	Sign_Extend_imm
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/PC.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/PC.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module PC
+
+Top level modules:
+	PC
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/mux_2to1_16bit.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/mux_2to1_16bit.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module mux_2to1_16bit
+
+Top level modules:
+	mux_2to1_16bit
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Reg_File.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Reg_File.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Reg_File
+
+Top level modules:
+	Reg_File
+
+} {} {}}

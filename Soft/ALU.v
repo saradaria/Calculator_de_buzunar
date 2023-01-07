@@ -1,9 +1,8 @@
 `timescale 1ns / 1ps
 
 module ALU(
-    input   [15:0] a,b,
+    input [7:0] a,b,c, //a - registru, b - imm, c - acc
     input [5:0] opcode,
-    input C,
     output reg [15:0] result,
     output reg Z_out, N_out, C_out, O_out
 );
@@ -21,160 +20,295 @@ module ALU(
    case(opcode)
      6'b001001: //ADD
       begin
-        {C_out,result} <= a + b;
-        if(result < 0) N_out <= 1'd1;
-        else N_out <= 1'd0;
-        Z_out <= ~(|result);
-        O_out <= ({C_out,result[15]} == 2'b01);
+        if(b == 8'bx)begin
+          {C_out,result} <= a + c;
+          if(result < 0) N_out <= 1'd1;
+          else N_out <= 1'd0;
+          Z_out <= ~(|result);
+          O_out <= ({C_out,result[15]} == 2'b01);
+        end
+        else begin
+          {C_out,result} <= a + b;
+          if(result < 0) N_out <= 1'd1;
+          else N_out <= 1'd0;
+          Z_out <= ~(|result);
+          O_out <= ({C_out,result[15]} == 2'b01);
+       end
      end
      
      6'b001010: //SUB 
       begin
-        {C_out,result} <= a - b;
-        if(result < 0) N_out <= 1'd1;
-        else N_out = 1'd0;
-        Z_out <= ~(|result);
-        O_out <= ({C_out,result[15]} == 2'b01);
+        if(b == 8'bx) begin
+          {C_out,result} <= a - c;
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          Z_out <= ~(|result);
+          O_out <= ({C_out,result[15]} == 2'b01);
+        end
+        else begin
+          {C_out,result} <= a - b;
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          Z_out <= ~(|result);
+          O_out <= ({C_out,result[15]} == 2'b01);
+        end
      end 
          
      6'b001011: //LSR 
       begin
-        for(i = 0; i < b; i = i + 1)
-          {result, C_out } <= {1'b0, a};
-        Z_out <= ~(|result);
-        //O_out <= ({C_out,result[15]} == 2'b01);
+        if(b == 8'bx)begin
+          for(i = 0; i < c; i = i + 1)
+            {result, C_out } <= {1'b0, a};
+          Z_out <= ~(|result);
+          //O_out <= ({C_out,result[15]} == 2'b01);          
+        end
+        else begin
+          for(i = 0; i < b; i = i + 1)
+            {result, C_out } <= {1'b0, a};
+          Z_out <= ~(|result);
+          //O_out <= ({C_out,result[15]} == 2'b01);          
+       end
      end  
      
-     6'b001100: //LSl
+     6'b001100: //LSL
       begin
-        for(i = 0; i < b; i = i + 1)
-          {result, C_out } <= {a, 1'b0};
+        if(b == 8'bx) begin
+          for(i = 0; i < c; i = i + 1)
+            {result, C_out } <= {a, 1'b0};
           
-        Z_out <= ~(|result);
-        if(result < 0) N_out <= 1'd1;
-        else N_out = 1'd0;
-        //O_out <= ({C_out,result[15]} == 2'b01);
+          Z_out <= ~(|result);
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          //O_out <= ({C_out,result[15]} == 2'b01);  
+        end
+        else begin
+          for(i = 0; i < b; i = i + 1)
+            {result, C_out } <= {a, 1'b0};
+          
+         Z_out <= ~(|result);
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          //O_out <= ({C_out,result[15]} == 2'b01);          
+        end
+          
      end 
         
      6'b001101: //RSR
       begin
+        {result}<={a[0],a[7:1]};
         
-     end 
+        if(result < 0) N_out <= 1'd1;
+        else N_out = 1'd0;  
+          
+        Z_out <= ~(|result);
+      end 
      
      6'b001110: //RSL
       begin
+        {result}<={a[6:0],a[7]};
         
+        if(result < 0) N_out <= 1'd1;
+        else N_out = 1'd0;  
+          
+        Z_out <= ~(|result);       
       end
      
      6'b001111: //MOV
       begin
-        result <= b;
-        if(result < 0) N_out <= 1'd1;
-        else N_out = 1'd0;
-        Z_out <= ~(|result);
-     end
+
+          result <= a;
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          Z_out <= ~(|result); 
+        
+      end
      
      6'b010000: //MUL
       begin
-        {C_out,result} <= a * b;
+        if(b == 8'bx) begin
+          {C_out,result} <= a * c;
         
-        if(result < 0) N_out <= 1'd1;
-        else N_out = 1'd0;
-        Z_out <= ~(|result); 
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          Z_out <= ~(|result);  
+       end
+       else begin  
+          {C_out,result} <= a * b;
+        
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          Z_out <= ~(|result); 
+      end
      end
      
      6'b010001: //DIV
       begin
-        result <= a / b;
+        if(b == 8'bx) begin
+          result <= a / c;
         
-        if(result < 0) N_out <= 1'd1;
-        else N_out = 1'd0;
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
           
-        if(a < b) Z_out = 1'd1;
-        else Z_out = 1'd0; 
+          if(a < b) Z_out = 1'd1;
+          else Z_out = 1'd0;          
+        end
+        else begin
+          result <= a / b;
+        
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          
+          if(a < b) Z_out = 1'd1;
+          else Z_out = 1'd0; 
+        end
      end
 
      6'b010010: //MOD
       begin
-        result <= a % b; 
-        Z_out <= ~(|result); 
+        if(b == 8'bx)begin
+          result <= a % c; 
+          Z_out <= ~(|result);           
+        end
+        else begin
+          result <= a % b; 
+          Z_out <= ~(|result); 
+        end
+        
      end
      
      6'b010011: //AND
       begin
+        if(b == 8'bx) begin
+          result <= a & c; 
         
-        result <= a & b; 
-        
-        if(result < 0) N_out <= 1'd1;
-        else N_out <= 1'd0;
+          if(result < 0) N_out <= 1'd1;
+          else N_out <= 1'd0;
           
-        Z_out <= ~(|result);  
+          Z_out <= ~(|result); 
+        end
+        else begin
+          result <= a & b; 
+          
+          if(result < 0) N_out <= 1'd1;
+          else N_out <= 1'd0;
+          
+          Z_out <= ~(|result);           
+       end
      end
      
      6'b010100: //OR
       begin
         
-        result <= a | b; 
+        if(b == 8'bx)begin
+          result <= a | c; 
         
-        if(result < 0) N_out <= 1'd1;
-        else N_out <= 1'd0;
+          if(result < 0) N_out <= 1'd1;
+          else N_out <= 1'd0;
           
-        Z_out <= ~(|result);  
+          Z_out <= ~(|result);  
+        end
+        else begin
+          result <= a | b; 
+        
+          if(result < 0) N_out <= 1'd1;
+          else N_out <= 1'd0;
+          
+          Z_out <= ~(|result);           
+        end
      end
      
      6'b010101: //XOR
       begin
         
-        result <= a ^ b; 
+        if(b == 8'bx) begin
+          result <= a ^ c; 
         
-        if(result < 0) N_out <= 1'd1;
-        else N_out <= 1'd0;
+          if(result < 0) N_out <= 1'd1;
+          else N_out <= 1'd0;
           
-        Z_out <= ~(|result);  
+          Z_out <= ~(|result);            
+        end 
+        else begin
+          result <= a ^ b; 
+        
+          if(result < 0) N_out <= 1'd1;
+          else N_out <= 1'd0;
+          
+          Z_out <= ~(|result);                 
+        end
+
      end
      
      6'b010110: //NOT
       begin
         
-        result <= ~b; 
+         result <= ~a; 
         
-        if(result < 0) N_out <= 1'd1;
-        else N_out <= 1'd0;
+         if(result < 0) N_out <= 1'd1;
+         else N_out <= 1'd0;
           
-        Z_out <= ~(|result);  
-     end
+         Z_out <= ~(|result);           
+             
+      end
 
      6'b010111: //CMP
       begin
-        {C_out,result} <= a - b;
-        if(result < 0) N_out <= 1'd1;
-        else N_out = 1'd0;
-        Z_out <= ~(|result);
-        O_out <= ({C_out,result[15]} == 2'b01); 
+        
+        if(b == 8'bx) begin
+          {C_out,result} <= a - c;
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          Z_out <= ~(|result);
+          O_out <= ({C_out,result[15]} == 2'b01);         
+        end
+        else begin
+          {C_out,result} <= a - b;
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          Z_out <= ~(|result);
+          O_out <= ({C_out,result[15]} == 2'b01);
+       end          
      end
     
-     6'b011000: //TST
+     6'b011000: //TST  //same as AND but result should be discarded!
       begin
+        if(b == 8'bx) begin
+          result <= a & c; 
         
-     end 
+          if(result < 0) N_out <= 1'd1;
+          else N_out <= 1'd0;
+          
+          Z_out <= ~(|result); 
+        end
+        else begin
+          result <= a & b; 
+          
+          if(result < 0) N_out <= 1'd1;
+          else N_out <= 1'd0;
+          
+          Z_out <= ~(|result);           
+       end
+      end 
      
      6'b011001: //INC
       begin
-        {C_out,result} <= b + 1;
-        if(result < 0) N_out <= 1'd1;
-        else N_out = 1'd0;
-        Z_out <= ~(|result);
-        O_out <= ({C_out,result[15]} == 2'b01);
+          {C_out,result} <= a + 1;
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          Z_out <= ~(|result);
+          O_out <= ({C_out,result[15]} == 2'b01);  
      end        
      
      6'b011010: //DEC
       begin
-        {C_out,result} <= b - 1;
-        if(result < 0) N_out <= 1'd1;
-        else N_out = 1'd0;
-        Z_out <= ~(|result);
-        O_out <= ({C_out,result[15]} == 2'b01);
-     end   
+          {C_out,result} <= a - 1;
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          Z_out <= ~(|result);
+          O_out <= ({C_out,result[15]} == 2'b01);
+         
+      end
+         
    endcase
  end
 
