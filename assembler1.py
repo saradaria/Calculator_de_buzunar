@@ -79,7 +79,7 @@ with open(sys.argv[1]) as f:
 				if r == 'X':
 					writetofile("rom.txt", bopr, " 0\n")
 				elif r == 'Y' :
-					writetofile("rom.txt", bopr, " 0\n")
+					writetofile("rom.txt", bopr, " 1\n")
 				else :
 					print ("Invalid register name")
 					print (tok[1].upper())
