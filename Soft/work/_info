@@ -1,0 +1,275 @@
+m255
+K3
+13
+cModel Technology
+dC:\Modelsim\modelsim\win32aloem
+vAccumulator
+IOFJ3>Y=bDjU?74hK_0JS72
+VS5>:]DQ8V0W9zYRBgOzXV0
+Z0 dG:\ANUL 3\FIC\proiect final\Soft
+w1671037135
+8G:/ANUL 3/FIC/proiect final/Soft/Accumulator.v
+FG:/ANUL 3/FIC/proiect final/Soft/Accumulator.v
+L0 3
+Z1 OV;L;6.5b;42
+r1
+31
+Z2 !s102 -nocovercells
+Z3 o-work work -nocovercells -O0
+n@accumulator
+!s100 =GCi?<W1MeW6z01?A_BG30
+!s85 0
+!s101 -O0
+vAcumulator
+IbMU^[N7?gGPAPlCf<Z0003
+V=3c]BV^YITePHG1DOJbSU2
+Z4 dG:\ANUL 3\FIC\proiect final\Soft
+w1670874748
+8G:/ANUL 3/FIC/proiect/Acumulator.v
+FG:/ANUL 3/FIC/proiect/Acumulator.v
+L0 3
+R1
+r1
+31
+R3
+n@acumulator
+R2
+!s100 =z:<gCQAFFCfNlzTN:OOR2
+!s85 0
+!s101 -O0
+vAdder
+IPMMZT9QUXOS0ik8gj7ZYL3
+V8e2]IRGXoUF4DmnMNKZ@B3
+R4
+w1671037069
+8G:/ANUL 3/FIC/proiect final/Soft/Adder.v
+FG:/ANUL 3/FIC/proiect final/Soft/Adder.v
+L0 3
+R1
+r1
+31
+R2
+R3
+n@adder
+!s100 FIzMnZB?GWQfPoARN@`341
+!s85 0
+!s101 -O0
+vALU
+IlZz6<0LkWFR0Mg0?1@4T>2
+VniAaXkakig0MWaGSfD1941
+R4
+w1673018661
+8G:/ANUL 3/FIC/proiect final/Soft/ALU.v
+FG:/ANUL 3/FIC/proiect final/Soft/ALU.v
+L0 3
+R1
+r1
+31
+R2
+R3
+n@a@l@u
+!s100 `XO<B<6`POXgh7ZG5?aPh2
+!s85 0
+!s101 -O0
+vCalculator
+!s100 YEWo60HANHCkQkZF<Nk4:3
+IQ=MH91KWhSEBBPKW@iQ4e1
+V6:_03;AI<71cRm_eB:_=02
+R4
+w1673102073
+8G:/ANUL 3/FIC/proiect final/Soft/Calculator.v
+FG:/ANUL 3/FIC/proiect final/Soft/Calculator.v
+L0 1
+R1
+r1
+!s85 0
+31
+!s101 -O0
+R2
+R3
+n@calculator
+vControl_Unit
+I2jGFnZXaKknng15Sk=dAX3
+ViXDd3OKOhA1zb3z`U`CMj1
+R4
+w1671040591
+8G:/ANUL 3/FIC/proiect final/Soft/Control_Unit.v
+FG:/ANUL 3/FIC/proiect final/Soft/Control_Unit.v
+L0 3
+R1
+r1
+31
+R2
+R3
+n@control_@unit
+!s100 G^iJLFPeJF:E=lOS8?_a=0
+!s85 0
+!s101 -O0
+vData_memory
+IBY@G8S1az<D_6n:^kU@k[3
+VDm8E@O6:6db[5nKCB:7b22
+R4
+w1671037279
+8G:/ANUL 3/FIC/proiect final/Soft/Data_memory.v
+FG:/ANUL 3/FIC/proiect final/Soft/Data_memory.v
+L0 3
+R1
+r1
+31
+R2
+R3
+n@data_memory
+!s100 >Gf]oA]=Z5V8WB1:ff=T12
+!s85 0
+!s101 -O0
+vFlags
+IGcOfZ5AKG0m^L>oN1DOO_3
+VEEeSgmXRh>3Y96=_S@18L3
+R4
+w1671037306
+8G:/ANUL 3/FIC/proiect final/Soft/Flags.v
+FG:/ANUL 3/FIC/proiect final/Soft/Flags.v
+L0 3
+R1
+r1
+31
+R2
+R3
+n@flags
+!s100 Q6eRLU7E_HkzVhTUKM`ae3
+!s85 0
+!s101 -O0
+vInstruction_Memory
+I9og<UW`nZm20`kSBolYiV1
+Vf:GZOS]_ia8QfgQU;1U_[2
+R4
+w1671037339
+8G:/ANUL 3/FIC/proiect final/Soft/Instruction_Memory.v
+FG:/ANUL 3/FIC/proiect final/Soft/Instruction_Memory.v
+L0 3
+R1
+r1
+31
+R2
+R3
+n@instruction_@memory
+!s100 9T_>>7HO3DYi]FE9PS9>j2
+!s85 0
+!s101 -O0
+vmux_2to1_16bit
+IQ351_G[F3LJEfc5d3Y4<93
+VC9?k8JTL@0=J>ZZdSBld92
+R4
+w1671037592
+8G:/ANUL 3/FIC/proiect final/Soft/mux_2to1_16bit.v
+FG:/ANUL 3/FIC/proiect final/Soft/mux_2to1_16bit.v
+L0 3
+R1
+r1
+31
+R2
+R3
+!s100 Rg7Sb2k:eA0Nmhnni39LL1
+!s85 0
+!s101 -O0
+vmux_3to1_16bit
+IEgi_IIg;aXiDi5`fKC8bN1
+VU1[``foIB6dUXdfIWJe=i2
+R4
+w1671037642
+8G:/ANUL 3/FIC/proiect final/Soft/mux_3to1_16bit.v
+FG:/ANUL 3/FIC/proiect final/Soft/mux_3to1_16bit.v
+L0 3
+R1
+r1
+31
+R2
+R3
+!s100 HNEURTe@3PRIYiilM<gTZ3
+!s85 0
+!s101 -O0
+vPC
+IPW;40EH9]KabYKRIgUf=D0
+VaK?3hTQT<4z4RkaEn``Th1
+R4
+w1671037388
+8G:/ANUL 3/FIC/proiect final/Soft/PC.v
+FG:/ANUL 3/FIC/proiect final/Soft/PC.v
+L0 3
+R1
+r1
+31
+R2
+R3
+n@p@c
+!s100 ^K5XPda;Kamb<LG6Vd1Tf1
+!s85 0
+!s101 -O0
+vReg_File
+IV>:o:OC22M=c1MRYCV>;Z0
+V1KTz=9MXzTAaD;NY=e<YT3
+R4
+w1671037460
+8G:/ANUL 3/FIC/proiect final/Soft/Reg_File.v
+FG:/ANUL 3/FIC/proiect final/Soft/Reg_File.v
+L0 3
+R1
+r1
+31
+R2
+R3
+n@reg_@file
+!s100 ]gG6W7hh39BC`NO;b^C[A2
+!s85 0
+!s101 -O0
+vSign_Extend
+I<Q7eMEhHl=;CT4N;eJ;530
+VbnoZ5AKY^hOCBdJDUo0a>2
+R4
+w1671037490
+8G:/ANUL 3/FIC/proiect final/Soft/Sign_Extend.v
+FG:/ANUL 3/FIC/proiect final/Soft/Sign_Extend.v
+L0 3
+R1
+r1
+31
+R2
+R3
+n@sign_@extend
+!s100 RZ`2ikh>hoj^J4Yj5YdCL1
+!s85 0
+!s101 -O0
+vSign_Extend_imm
+IG?Shb3fg9c;Y4VX::6dlA0
+VzDE8_l70c`bYTnnRmi=8i1
+R4
+w1671037521
+8G:/ANUL 3/FIC/proiect final/Soft/Sign_Extend_imm.v
+FG:/ANUL 3/FIC/proiect final/Soft/Sign_Extend_imm.v
+L0 3
+R1
+r1
+31
+R2
+R3
+n@sign_@extend_imm
+!s100 `T4mWV:=3`FE_^ajDTDB13
+!s85 0
+!s101 -O0
+vStack_Pointer
+ImVj>dE:im<K_RQ;I;I4OF1
+V=ahdLU1XoUeA6znZJFMfK3
+R4
+w1671037556
+8G:/ANUL 3/FIC/proiect final/Soft/Stack_Pointer.v
+FG:/ANUL 3/FIC/proiect final/Soft/Stack_Pointer.v
+L0 3
+R1
+r1
+31
+R2
+R3
+n@stack_@pointer
+!s100 zi77PDXV3OK9V2d[DO>^z1
+!s85 0
+!s101 -O0

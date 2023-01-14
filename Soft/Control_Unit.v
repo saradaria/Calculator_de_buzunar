@@ -1,0 +1,627 @@
+`timescale 1ns / 1ps
+
+module Control_Unit(
+    input   Z, N, C, O, reset, clk,
+    input [15:0] instr,
+    output reg [5:0] opcode, 
+    output reg [8:0] immediate,
+    output reg reg_addr, write_or_read, DW_or_DR, ACC_out,
+    output reg psh, pop, jmp, bra,
+    output reg [9:0] jmp_addr,
+    output reg [1:0] W_R_C
+);
+
+initial begin
+ opcode = instr[15:10];
+end
+
+always @(*) begin
+  case(opcode)
+    6'b000000: //LDR
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+        
+        write_or_read = 1'd1;   //la load luam din mem
+        if(instr == 9'bxxxxxxxxx) W_R_C = 2'b01;  
+        else W_R_C = 2'b10;         //Dout
+        DW_or_DR = 1'd0;
+        ACC_out = 1'd0;
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0;
+      end
+      
+    6'b000001: // STR
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+        
+        write_or_read = 1'd0;   //la str punem in mem
+        W_R_C = 2'b00;          //Imm
+        DW_or_DR = 1'd1;
+        ACC_out = 1'd0;
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0;
+      end
+      
+    6'b000010: // BRZ
+      begin
+        jmp_addr = instr[9:0];
+      
+        if(Z == 1) bra = 1'd1;
+        else bra = 1'd0;
+          
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0; 
+        
+        //reg_address = 1'b0;
+        //W_R_C = 2'b00;
+        //DW_or_DR = 1'b0;
+        //write_or_read = 1'b0;
+      end 
+      
+    6'b000011: // BRN
+      begin
+        jmp_addr = instr[9:0];
+      
+        if(N == 1)bra = 1'd1;
+        else bra = 1'd0; 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0; 
+
+        //reg_address = 1'b0;
+        //W_R_C = 2'b00;
+        //DW_or_DR = 1'b0;
+        //write_or_read = 1'b0;
+      end  
+      
+    6'b000100: // BRC
+      begin
+        jmp_addr = instr[9:0];
+      
+        if(C == 1) begin
+          bra = 1'd1;
+        end
+        else begin
+          bra = 1'd0;
+        end  
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0; 
+        
+        //reg_address = 1'b0;
+        //W_R_C = 2'b00;
+        //DW_or_DR = 1'b0;
+        //write_or_read = 1'b0;
+      end 
+      
+    6'b000101: // BRO
+      begin
+        jmp_addr = instr[9:0];
+      
+        if(O == 1) begin
+          bra = 1'd1;
+        end
+        else begin
+          bra = 1'd0;
+        end  
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0; 
+        
+        //reg_address = 1'b0;
+        //W_R_C = 2'b00;
+        //DW_or_DR = 1'b0;
+        //write_or_read = 1'b0;
+      end  
+      
+    6'b000110: // BRA
+      begin
+        jmp_addr = instr[9:0];
+      
+        bra = 1'd1;
+          
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0; 
+        
+        //reg_address = 1'b0;
+        //W_R_C = 2'b00;
+        //DW_or_DR = 1'b0;
+        //write_or_read = 1'b0;       
+      end   
+
+    6'b000111: // JMP
+      begin
+        jmp_addr = instr[9:0];
+      
+        bra = 1'd1;
+        
+        psh = 1'd1;
+        pop = 1'd0;
+        jmp = 1'd1; 
+        DW_or_DR = 1'd1;
+  
+        //reg_address = 1'b0;
+        //W_R_C = 2'b00;
+        //write_or_read = 1'b0;
+      end    
+         
+    6'b001000: // RET
+      begin
+        jmp_addr = instr[9:0];
+      
+        bra = 1'd1;
+        
+        psh = 1'd0;
+        pop = 1'd1;
+        jmp = 1'd1;  
+        DW_or_DR = 1'd0;
+
+        //reg_address = 1'b0;
+        //W_R_C = 2'b00;
+        //write_or_read = 1'b0;
+      end 
+ 
+     //6'b001001: // ADD
+      //begin
+        //reg_addr = instr[9];
+        //immediate = instr[8:0];
+         
+        //if(instr[8:0] == 9'bxxxxxxxxx) begin
+            //ACC_out = 1'd1; 
+            //write_or_read = 1'd1;       
+            //W_R_C = 2'b01;            
+        //end
+        //else begin
+            //ACC_out = 1'd0; 
+            //write_or_read = 1'd1;       
+            //W_R_C = 2'b01;     //luam imm, nu din data memory
+        //end 
+               
+        //psh = 1'd0;
+        //pop = 1'd0;
+        //jmp = 1'd0;
+        //bra = 1'd0;
+        //jmp_addr = 10'b0; 
+      //end 
+     
+     6'b001001: // ADD
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+        
+        //luam mereu rezultatul din acumulator 
+        ACC_out = 1'd1; 
+        write_or_read = 1'd1;       
+        W_R_C = 2'b01;            
+              
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end     6'b001001: // ADD
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+        
+        //luam mereu rezultatul din acumulator 
+        ACC_out = 1'd1; 
+        write_or_read = 1'd1;       
+        W_R_C = 2'b01;            
+              
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end
+      
+     6'b001010: // SUB
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+        
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+               
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end   
+      
+     6'b001011: // LSR
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+         
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+         
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end 
+      
+     6'b001100: // LSL
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+ 
+ 
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end 
+      
+     6'b001101: // RSR
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end 
+      
+     6'b001110: // RSL
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end 
+      
+     6'b001111: // MOV
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end  
+      
+     6'b010000: // MUL
+     begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end  
+      
+     6'b010001: // DIV
+     begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end  
+      
+     6'b010010: // MOD
+     begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end
+      
+     6'b010011: // AND
+     begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end
+      
+     6'b010100: // OR
+     begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end 
+
+     6'b010101: // XOR
+     begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end
+      
+     6'b010110: // NOT
+     begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end
+      
+     6'b010111: // CMP
+     begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end
+      
+     6'b011000: // TST
+     begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end
+      
+     6'b011001: // INC
+     begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end
+      
+     6'b011010: // DEC
+     begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+
+        if(instr[8:0] == 9'bxxxxxxxxx) begin
+            ACC_out = 1'd1; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b01;            
+        end
+        else begin
+            ACC_out = 1'd0; 
+            write_or_read = 1'd1;       
+            W_R_C = 2'b00;     //luam imm, nu din data memory
+        end 
+        
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end
+      
+  endcase
+end
+
+endmodule
