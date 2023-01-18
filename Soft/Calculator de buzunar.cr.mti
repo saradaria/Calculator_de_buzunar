@@ -8,6 +8,20 @@ Top level modules:
 } {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Parameter.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Parameter.v}
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/ALU.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/ALU.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Calculator.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Calculator.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Calculator
+
+Top level modules:
+	Calculator
+
 } {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Data_memory.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Data_memory.v}
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 -- Compiling module Data_memory
@@ -21,13 +35,6 @@ Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 
 Top level modules:
 	Instruction_Memory
-
-} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Calculator.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Calculator.v}
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module Calculator
-
-Top level modules:
-	Calculator
 
 } {} {}} {G:/ANUL 3/FIC/proiect final/Soft/mux_3to1_16bit.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/mux_3to1_16bit.v}
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009

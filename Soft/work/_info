@@ -55,10 +55,10 @@ n@adder
 !s85 0
 !s101 -O0
 vALU
-I6XFJ>J4N1?N4kZ[WLQ9=J3
+ICKX`F]?fKB?T1Qb1UKSH91
 VniAaXkakig0MWaGSfD1941
 R4
-w1674047694
+w1674053373
 8G:/ANUL 3/FIC/proiect final/Soft/ALU.v
 FG:/ANUL 3/FIC/proiect final/Soft/ALU.v
 L0 3
@@ -68,18 +68,35 @@ r1
 R2
 R3
 n@a@l@u
-!s100 ]i7CVf6;zXjAe3_[JJVN23
+!s100 z<<;8neY_W:hfF?fl>d9E0
 !s85 0
 !s101 -O0
 vCalculator
-!s100 YEWo60HANHCkQkZF<Nk4:3
-IQ=MH91KWhSEBBPKW@iQ4e1
-V6:_03;AI<71cRm_eB:_=02
+IX91oX;R=Sn55WJhhbPQF[3
+Vh_g03CN40_ToXl_jQ?6E21
 R4
-w1673882920
+w1674053278
 8G:/ANUL 3/FIC/proiect final/Soft/Calculator.v
 FG:/ANUL 3/FIC/proiect final/Soft/Calculator.v
 L0 1
+R1
+r1
+31
+R2
+R3
+n@calculator
+!s100 @:BINDoW^I<EfJKE9ZWX60
+!s85 0
+!s101 -O0
+vCalculator_tb
+!s100 A1dRX]iz<Ig;V@z4KngAJ1
+IkTNH1hl<>L[Mn3@mV9MTP1
+V1K@]XFk[BAoD[h1n@Cm^?0
+R4
+w1674053545
+8G:/ANUL 3/FIC/proiect final/Soft/Calculator_tb.v
+FG:/ANUL 3/FIC/proiect final/Soft/Calculator_tb.v
+L0 3
 R1
 r1
 !s85 0
@@ -87,7 +104,7 @@ r1
 !s101 -O0
 R2
 R3
-n@calculator
+n@calculator_tb
 vControl_Unit
 I2jGFnZXaKknng15Sk=dAX3
 ViXDd3OKOhA1zb3z`U`CMj1

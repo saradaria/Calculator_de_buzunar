@@ -1,5 +1,9 @@
 module Calculator(
-  input clk, rst
+  input clk, rst,
+  output [15:0] pc,
+  output [15:0] inst,
+  output [15:0] al,
+  output [15:0] rr
 );
 
 wire   Z, N, C, O;
@@ -41,7 +45,7 @@ wire [15:0] imm_extend_alu;
 Sign_Extend_imm S_ALU (.imm(immediate), .imm_extend(imm_extend_alu));
 
 wire [15:0] data_out_sp; 
-Stack_Pointer SP (.pop(pop), .push(psh), .data_out(data_out_sp));
+Stack_Pointer SP (.pop(pop), .psh(psh), .data_out(data_out_sp));
 
 wire [15:0] imm_extend_sp;
 Sign_Extend_imm S_SP (.imm(immediate), .imm_extend(imm_extend_sp));
@@ -63,6 +67,10 @@ Accumulator ACC (.alu_out(alu_out), .ACC_out(ACC_out), .out(alu_acc));
 
 ALU ALU_INST (.a(read_reg), .b(imm_extend_alu), .c(alu_acc), .opcode(opcode), .result(alu_out), .Z_out(Z_alu), .N_out(N_alu), .C_out(C_alu), .O_out(O_alu));
 
+assign pc = PC_out;
+assign inst = instr;
+assign al = alu_out;
+assign rr = read_reg;
 
 endmodule
 

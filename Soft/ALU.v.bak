@@ -377,7 +377,7 @@ module ALU(
       
       6'b100000: //Sin
       begin  
-          result <= sin(a);
+          result <= $sin(a);
           if(result < 0) N_out <= 1'd1;
           else N_out = 1'd0;
           Z_out <= ~(|result);
@@ -385,11 +385,20 @@ module ALU(
       
       6'b100000: //cos
       begin  
-          result <= cos(a);
+          result <= $cos(a);
           if(result < 0) N_out <= 1'd1;
           else N_out = 1'd0;
           Z_out <= ~(|result);
       end  
+      
+      6'b100001: //tangenta
+      begin  
+          result <= $tan(a);
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          Z_out <= ~(|result);
+      end  
+            
    endcase
  end
 
