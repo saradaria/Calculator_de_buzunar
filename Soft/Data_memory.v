@@ -13,7 +13,7 @@ integer f;
 //wire [2:0] ram_addr = mem_access_addr[2:0];
 
 initial begin
-  $readmemb("./test/test.data", memory);
+  $readmemb("../dm.txt", memory);
 end
  
  always @(posedge clk) begin

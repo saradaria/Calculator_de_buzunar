@@ -9,7 +9,7 @@ module Instruction_Memory(
  wire [3 : 0] rom_addr = pc[4 : 1];  //pc returneaza adresa instr ce trb facuta
  initial
  begin
-  $readmemb("./test/test.txt", memory,0, `row_i - 1);// data file name, memory name, start/end address
+  $readmemb("../rom.txt", memory,0, `row_i - 1);// data file name, memory name, start/end address
  end
  assign instruction =  memory[rom_addr]; 
 

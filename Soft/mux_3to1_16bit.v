@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module mux_3to1_16bit (
-   input [15:0] a, b, c,
+   input [15:0] a, b, c, d,
    input  [1:0] sel,
    output reg [15:0] out
 );

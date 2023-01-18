@@ -55,10 +55,10 @@ n@adder
 !s85 0
 !s101 -O0
 vALU
-IlZz6<0LkWFR0Mg0?1@4T>2
+I6XFJ>J4N1?N4kZ[WLQ9=J3
 VniAaXkakig0MWaGSfD1941
 R4
-w1673018661
+w1674047694
 8G:/ANUL 3/FIC/proiect final/Soft/ALU.v
 FG:/ANUL 3/FIC/proiect final/Soft/ALU.v
 L0 3
@@ -68,7 +68,7 @@ r1
 R2
 R3
 n@a@l@u
-!s100 `XO<B<6`POXgh7ZG5?aPh2
+!s100 ]i7CVf6;zXjAe3_[JJVN23
 !s85 0
 !s101 -O0
 vCalculator
@@ -76,7 +76,7 @@ vCalculator
 IQ=MH91KWhSEBBPKW@iQ4e1
 V6:_03;AI<71cRm_eB:_=02
 R4
-w1673102073
+w1673882920
 8G:/ANUL 3/FIC/proiect final/Soft/Calculator.v
 FG:/ANUL 3/FIC/proiect final/Soft/Calculator.v
 L0 1
@@ -106,10 +106,10 @@ n@control_@unit
 !s85 0
 !s101 -O0
 vData_memory
-IBY@G8S1az<D_6n:^kU@k[3
+I1hF?WmCkA:1k_HBg3OSXI0
 VDm8E@O6:6db[5nKCB:7b22
 R4
-w1671037279
+w1674044425
 8G:/ANUL 3/FIC/proiect final/Soft/Data_memory.v
 FG:/ANUL 3/FIC/proiect final/Soft/Data_memory.v
 L0 3
@@ -119,7 +119,7 @@ r1
 R2
 R3
 n@data_memory
-!s100 >Gf]oA]=Z5V8WB1:ff=T12
+!s100 W:P8Va2Qnjbf2=TF8hI1R2
 !s85 0
 !s101 -O0
 vFlags
@@ -140,10 +140,10 @@ n@flags
 !s85 0
 !s101 -O0
 vInstruction_Memory
-I9og<UW`nZm20`kSBolYiV1
+IZUK47I0VV9LI:4;@[lPdP1
 Vf:GZOS]_ia8QfgQU;1U_[2
 R4
-w1671037339
+w1674044112
 8G:/ANUL 3/FIC/proiect final/Soft/Instruction_Memory.v
 FG:/ANUL 3/FIC/proiect final/Soft/Instruction_Memory.v
 L0 3
@@ -153,7 +153,7 @@ r1
 R2
 R3
 n@instruction_@memory
-!s100 9T_>>7HO3DYi]FE9PS9>j2
+!s100 I]hd>kdCMleXadLa`LPdL0
 !s85 0
 !s101 -O0
 vmux_2to1_16bit

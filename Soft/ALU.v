@@ -303,12 +303,102 @@ module ALU(
       begin
           {C_out,result} <= a - 1;
           if(result < 0) N_out <= 1'd1;
-          else N_out = 1'd0;
+          else N_out <= 1'd0;
           Z_out <= ~(|result);
           O_out <= ({C_out,result[15]} == 2'b01);
          
       end
-         
+     
+     6'b011011: //ridicare la puterea 2
+      begin  
+        result <= a * a;
+        if(result < 0) N_out <= 1'd1;
+        else N_out <= 1'd0;
+      end
+      
+     6'b011100: //ridicare la puterea 3
+      begin  
+        result = a * a * a;
+        if(result < 0) N_out <= 1'd1;
+        else N_out = 1'd0;
+     end
+     
+     6'b011101: //ridicare la puterea n
+      begin  
+        if(b == 8'bx) begin
+          if(c==0) begin
+            result <= 16'd1;
+          end
+          else begin
+           
+            for(i=0; i<c;i=i+1)
+              result <= result * a;
+          
+            if(result < 0) N_out <= 1'd1;
+            else N_out = 1'd0;
+            Z_out <= ~(|result);        
+            end
+          end
+        else begin
+          
+          if(b==0) begin
+            result <= 16'd1;
+          end
+          else begin
+            for(i=0; i<b;i=i+1)
+              result <= result * a;
+          
+            if(result < 0) N_out <= 1'd1;
+            else N_out = 1'd0;
+            Z_out <= ~(|result);
+          end
+          
+       end  
+      end 
+      
+      6'b011110: //sqrt
+      begin  
+          result <= sqrt(a);
+           N_out <= 1'd0;  
+           Z_out <= ~(|result);
+      end 
+      
+      6'b011111: //exponentiala
+      begin  
+        if(a==0) begin
+          result <= 16'b1;
+        end
+        else begin
+          {C_out,result} <= exp(a);
+          N_out <= 1'd0;  
+          Z_out <= ~(|result);
+        end
+      end
+      
+      6'b100000: //Sin
+      begin  
+          result <= sin(a);
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          Z_out <= ~(|result);
+      end     
+      
+      6'b100000: //cos
+      begin  
+          result <= cos(a);
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          Z_out <= ~(|result);
+      end  
+      
+      6'b100001: //tangenta
+      begin  
+          result <= tan(a);
+          if(result < 0) N_out <= 1'd1;
+          else N_out = 1'd0;
+          Z_out <= ~(|result);
+      end  
+            
    endcase
  end
 
