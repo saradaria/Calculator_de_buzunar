@@ -174,28 +174,6 @@ always @(*) begin
         //write_or_read = 1'b0;
       end 
  
-     //6'b001001: // ADD
-      //begin
-        //reg_addr = instr[9];
-        //immediate = instr[8:0];
-         
-        //if(instr[8:0] == 9'bxxxxxxxxx) begin
-            //ACC_out = 1'd1; 
-            //write_or_read = 1'd1;       
-            //W_R_C = 2'b01;            
-        //end
-        //else begin
-            //ACC_out = 1'd0; 
-            //write_or_read = 1'd1;       
-            //W_R_C = 2'b01;     //luam imm, nu din data memory
-        //end 
-               
-        //psh = 1'd0;
-        //pop = 1'd0;
-        //jmp = 1'd0;
-        //bra = 1'd0;
-        //jmp_addr = 10'b0; 
-      //end 
      
      6'b001001: // ADD
       begin
@@ -212,22 +190,7 @@ always @(*) begin
         jmp = 1'd0;
         bra = 1'd0;
         jmp_addr = 10'b0; 
-      end     6'b001001: // ADD
-      begin
-        reg_addr = instr[9];
-        immediate = instr[8:0];
-        
-        //luam mereu rezultatul din acumulator 
-        ACC_out = 1'd1; 
-        write_or_read = 1'd1;       
-        W_R_C = 2'b01;            
-              
-        psh = 1'd0;
-        pop = 1'd0;
-        jmp = 1'd0;
-        bra = 1'd0;
-        jmp_addr = 10'b0; 
-      end
+      end     
       
      6'b001010: // SUB
       begin
@@ -621,6 +584,133 @@ always @(*) begin
         jmp_addr = 10'b0; 
       end
       
+      6'b011011: // Ridicare la putere 2
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+        
+        ACC_out = 1'd0; 
+        write_or_read = 1'd1;       
+        W_R_C = 2'b00;            
+              
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end 
+      
+      6'b011100: // Ridicare la puterea 3
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+        
+        ACC_out = 1'd0; 
+        write_or_read = 1'd1;       
+        W_R_C = 2'b00;            
+              
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end 
+      
+      6'b011101: // Ridicare la putere n
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+        
+        ACC_out = 1'd0; 
+        write_or_read = 1'd1;       
+        W_R_C = 2'b00;            
+              
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end 
+      
+      6'b011110: // sqrt
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+        
+        ACC_out = 1'd0; 
+        write_or_read = 1'd1;       
+        W_R_C = 2'b00;            
+              
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end 
+      
+      6'b011111: // exponentiala
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+        
+        ACC_out = 1'd0; 
+        write_or_read = 1'd1;       
+        W_R_C = 2'b00;            
+              
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end 
+      
+      6'b100000: // sin
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+        
+        ACC_out = 1'd0; 
+        write_or_read = 1'd1;       
+        W_R_C = 2'b00;            
+              
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end 
+      
+      6'b100001: //cos
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+        
+        ACC_out = 1'd0; 
+        write_or_read = 1'd1;       
+        W_R_C = 2'b00;            
+              
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end 
+      
+      6'b100010: // tan
+      begin
+        reg_addr = instr[9];
+        immediate = instr[8:0];
+        
+        ACC_out = 1'd0; 
+        write_or_read = 1'd1;       
+        W_R_C = 2'b00;            
+              
+        psh = 1'd0;
+        pop = 1'd0;
+        jmp = 1'd0;
+        bra = 1'd0;
+        jmp_addr = 10'b0; 
+      end
   endcase
 end
 

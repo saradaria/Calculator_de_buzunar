@@ -1,9 +1,9 @@
-{G:/ANUL 3/FIC/proiect final/Soft/Control_Unit.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Control_Unit.v}
+{G:/ANUL 3/FIC/proiect final/Soft/Calculator_tb.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Calculator_tb.v}
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module Control_Unit
+-- Compiling module Calculator_tb
 
 Top level modules:
-	Control_Unit
+	Calculator_tb
 
 } {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Parameter.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Parameter.v}
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
@@ -57,13 +57,6 @@ Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 Top level modules:
 	Stack_Pointer
 
-} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Adder.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Adder.v}
-Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
--- Compiling module Adder
-
-Top level modules:
-	Adder
-
 } {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Accumulator.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Accumulator.v}
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 -- Compiling module Accumulator
@@ -77,6 +70,13 @@ Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 
 Top level modules:
 	Sign_Extend
+
+} {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Adder.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Adder.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Adder
+
+Top level modules:
+	Adder
 
 } {} {}} {G:/ANUL 3/FIC/proiect final/Soft/Sign_Extend_imm.v} {1 {vlog -work work -nocovercells {G:/ANUL 3/FIC/proiect final/Soft/Sign_Extend_imm.v}
 Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
